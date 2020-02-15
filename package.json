@@ -1,6 +1,6 @@
 {
   "name": "password-generator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Application that allows you to generate complex passwords",
   "main": "builder.js",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iammalikov/simple-boilerplate.git"
+    "url": "git+https://github.com/iammalikov/password-generator.git"
   },
   "keywords": [
     "password",
@@ -20,9 +20,9 @@
   "author": "Ilya Malikov",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/iammalikov/simple-boilerplate/issues"
+    "url": "https://github.com/iammalikov/password-generator/issues"
   },
-  "homepage": "https://github.com/iammalikov/simple-boilerplate#readme",
+  "homepage": "https://github.com/iammalikov/password-generator#readme",
   "dependencies": {
     "normalize.css": "^8.0.1"
   },
