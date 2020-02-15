@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Smple boilerplate</title>
+    <link rel="stylesheet" href="./styles/main.scss" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <img src="./assets/logo.svg" alt="logo" class="logo" />
+      <div class="app">
+        <div class="app__type">
+          <div class="radio-group">
+            <div class="radio-group__button">
+              <input
+                type="radio"
+                name="password-type"
+                id="symbols"
+                checked="true"
+              />
+              <label for="symbols">
+                Символы
+              </label>
+            </div>
+            <div class="radio-group__button">
+              <input type="radio" name="password-type" id="phrase" />
+              <label for="phrase">
+                Фраза
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="app__password">
+          <div class="password">
+            <div class="password__field">PnfYucRbss5oNJzg2VJn5BQCm</div>
+            <button class="password__button">
+              <img src="./assets/copy.svg" alt="copy" />
+            </button>
+          </div>
+        </div>
+        <div class="app__strenght">
+          <div class="strenght">
+            <div class="strenght__estimate"></div>
+            <div class="strenght__label">Хороший</div>
+          </div>
+        </div>
+        <div class="app__length">
+          <div class="label">Длина</div>
+          <input type="range" name="" id="" />
+          <input type="text" name="" id="" />
+        </div>
+        <div class="app__symbols">
+          <div class="label">Виды символов</div>
+          <label class="checkbox" for="">
+            A-Z
+            <input type="checkbox" name="" id="" />
+          </label>
+          <label class="checkbox" for="">
+            a-z
+            <input type="checkbox" name="" id="" />
+          </label>
+          <label class="checkbox" for="">
+            0-9
+            <input type="checkbox" name="" id="" />
+          </label>
+          <label class="checkbox" for="">
+            !”#$
+            <input type="checkbox" name="" id="" />
+          </label>
+        </div>
+      </div>
+      <button class="button-info">i</button>
+    </div>
+
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>
