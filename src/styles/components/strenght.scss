@@ -1,0 +1,26 @@
+.strenght {
+  display: flex;
+  align-items: center;
+
+  &__estimate {
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background-color: $border;
+    border-radius: 5px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 5px;
+      background-color: $excellent;
+      border-radius: 5px;
+    }
+  }
+
+  &__label {
+    font-size: 10px;
+    margin-left: 20px;
+  }
+}

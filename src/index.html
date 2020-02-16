@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Smple boilerplate</title>
+    <title>Password generator</title>
     <link rel="stylesheet" href="./styles/main.scss" />
   </head>
   <body>
-    <div class="wrapper">
+    <div class="page">
       <img src="./assets/logo.svg" alt="logo" class="logo" />
       <div class="app">
         <div class="app__type">
@@ -17,10 +17,10 @@
               <input
                 type="radio"
                 name="password-type"
-                id="symbols"
+                id="scharacters"
                 checked="true"
               />
-              <label for="symbols">
+              <label for="scharacters">
                 Символы
               </label>
             </div>
@@ -48,30 +48,66 @@
         </div>
         <div class="app__length">
           <div class="label">Длина</div>
-          <input type="range" name="" id="" />
-          <input type="text" name="" id="" />
+          <div class="length">
+            <input
+              id=""
+              class="length__range"
+              type="range"
+              min="1"
+              max="99"
+              step="1"
+              value="10"
+              name=""
+            />
+            <input id="" class="length__count" type="text" name="" value="10" />
+          </div>
         </div>
-        <div class="app__symbols">
+        <div class="app__characters">
           <div class="label">Виды символов</div>
-          <label class="checkbox" for="">
-            A-Z
-            <input type="checkbox" name="" id="" />
-          </label>
-          <label class="checkbox" for="">
-            a-z
-            <input type="checkbox" name="" id="" />
-          </label>
-          <label class="checkbox" for="">
-            0-9
-            <input type="checkbox" name="" id="" />
-          </label>
-          <label class="checkbox" for="">
-            !”#$
-            <input type="checkbox" name="" id="" />
-          </label>
+          <div class="checkbox-group">
+            <div class="checkbox">
+              <input
+                type="checkbox"
+                name="characters_uppercase-letters"
+                id="characters_uppercase-letters"
+                checked="true"
+              />
+              <label for="characters_uppercase-letters">A-Z </label>
+            </div>
+            <div class="checkbox">
+              <input
+                type="checkbox"
+                name="characters_lowercase-letters"
+                id="characters_lowercase-letters"
+                checked="true"
+              />
+              <label for="characters_lowercase-letters">a-z </label>
+            </div>
+            <div class="checkbox">
+              <input
+                type="checkbox"
+                name="characters_numbers"
+                id="characters_numbers"
+                checked="true"
+              />
+              <label for="characters_numbers">0-9 </label>
+            </div>
+            <div class="checkbox">
+              <input
+                type="checkbox"
+                name="characters__special"
+                id="characters__special"
+              />
+              <label for="characters__special">!”#$ </label>
+            </div>
+          </div>
         </div>
       </div>
-      <button class="button-info">i</button>
+      <img
+        class="info-button"
+        src="./assets/info-button.svg"
+        alt="information about this app"
+      />
     </div>
 
     <script src="./scripts/main.js"></script>

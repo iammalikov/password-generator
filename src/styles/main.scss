@@ -1,2 +1,15 @@
 @import "normalize.css/normalize.css";
 @import "base";
+
+@import "./layout/app.scss";
+@import "./layout/page.scss";
+@import "./layout/checkbox-group.scss";
+
+@import "./components/checkbox.scss";
+@import "./components/info-button.scss";
+@import "./components/label.scss";
+@import "./components/logo.scss";
+@import "./components/password.scss";
+@import "./components/radio-group.scss";
+@import "./components/strenght.scss";
+@import "./components/length.scss";

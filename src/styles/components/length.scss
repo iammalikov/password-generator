@@ -1,0 +1,125 @@
+.length {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__range {
+    /* Normalize style for thumb and track */
+    &[type="range"] {
+      -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+      width: 100%; /* Specific width is required for Firefox. */
+      background: transparent; /* Otherwise white in Chrome */
+    }
+
+    &[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+    }
+
+    &[type="range"]:focus {
+      outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+    }
+
+    &[type="range"]::-ms-track {
+      width: 100%;
+      cursor: pointer;
+
+      /* Hides the slider so custom styles can be added */
+      background: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
+
+    /* Special styling for WebKit/Blink */
+    &[type="range"]::-webkit-slider-thumb {
+      height: 22px;
+      width: 22px;
+      border: 2px solid $border;
+      border-radius: 50%;
+      background: $white;
+      box-sizing: border-box;
+      cursor: pointer;
+      margin-top: -11px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+    }
+
+    /* All the same stuff for Firefox */
+    &[type="range"]::-moz-range-thumb {
+      height: 22px;
+      width: 22px;
+      border: 2px solid $border;
+      border-radius: 50%;
+      background: $white;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+
+    /* All the same stuff for IE */
+    &[type="range"]::-ms-thumb {
+      height: 22px;
+      width: 22px;
+      border: 2px solid $border;
+      border-radius: 50%;
+      background: $white;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+
+    &[type="range"]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 2px;
+      border-radius: 5px;
+      background-color: $border;
+      cursor: pointer;
+    }
+
+    &[type="range"]:focus::-webkit-slider-runnable-track {
+      background-color: $border;
+    }
+
+    &[type="range"]::-moz-range-track {
+      width: 100%;
+      height: 2px;
+      border-radius: 5px;
+      background-color: $border;
+      cursor: pointer;
+    }
+
+    &[type="range"]::-ms-track {
+      width: 100%;
+      height: 2px;
+      border-width: 2px 0;
+      background-color: transparent;
+      border-color: transparent;
+      color: transparent;
+      cursor: pointer;
+    }
+
+    &[type="range"]::-ms-fill-lower {
+      background-color: $border;
+      border-radius: 5px;
+    }
+
+    &[type="range"]:focus::-ms-fill-lower {
+      background-color: $border;
+    }
+
+    &[type="range"]::-ms-fill-upper {
+      background-color: $border;
+      border-radius: 5px;
+    }
+
+    &[type="range"]:focus::-ms-fill-upper {
+      background-color: $border;
+    }
+  }
+
+  &__count {
+    width: 45px;
+    height: 35px;
+    border: 2px solid $border;
+    font-size: 14px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    text-align: center;
+    margin-left: 20px;
+  }
+}

@@ -1,0 +1,13 @@
+.checkbox-group {
+  display: flex;
+  flex-direction: row;
+
+  & .checkbox {
+    margin-right: 10px;
+    width: 100%;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
