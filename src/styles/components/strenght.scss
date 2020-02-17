@@ -9,6 +9,10 @@
     background-color: $border;
     border-radius: 5px;
 
+    @media (min-width: 768px) {
+      height: 8px;
+    }
+
     &:before {
       content: "";
       position: absolute;
@@ -16,11 +20,25 @@
       height: 5px;
       background-color: $excellent;
       border-radius: 5px;
+
+      @media (min-width: 768px) {
+        height: 8px;
+      }
     }
   }
 
   &__label {
     font-size: 10px;
     margin-left: 20px;
+
+    @media (min-width: 768px) {
+      font-size: 14px;
+      margin-left: 40px;
+    }
+
+    @media (min-width: 1028px) {
+      font-size: 16px;
+      margin-left: 40px;
+    }
   }
 }

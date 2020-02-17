@@ -1,6 +1,6 @@
 {
   "name": "password-generator",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Application that allows you to generate complex passwords",
   "main": "builder.js",
   "scripts": {

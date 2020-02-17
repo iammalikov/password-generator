@@ -4,4 +4,25 @@
   justify-content: space-between;
   min-height: 100%;
   padding: 0 13px;
+
+  @media (min-width: 768px) {
+    margin: auto;
+    max-width: 635px;
+  }
+
+  @media (min-width: 1280px) {
+    max-width: 845px;
+  }
+
+  @media (min-width: 1440px) {
+    max-width: 955px;
+  }
+
+  .logo {
+    align-self: start;
+  }
+
+  .info-button {
+    align-self: end;
+  }
 }

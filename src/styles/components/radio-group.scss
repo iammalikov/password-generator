@@ -8,19 +8,40 @@
 
     label {
       box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border: 1px solid $main;
       color: $main;
-      display: block;
       text-align: center;
       width: 106px;
-      padding: 6px 0;
+      height: 35px;
       font-size: 14px;
-      line-height: 1.5;
+      transition: all 0.3s ease;
+      user-select: none;
+      cursor: pointer;
+
+      @media (min-width: 768px) {
+        width: 160px;
+        height: 45px;
+        font-size: 16px;
+      }
+
+      @media (min-width: 1280px) {
+        height: 50px;
+        font-size: 18px;
+      }
+
+      &:hover {
+        border-color: rgba($main, 0.6);
+        color: rgba($main, 0.6);
+      }
     }
 
     input:checked + label {
       color: $white;
       background-color: $main;
+      cursor: default;
     }
 
     &:first-child label {
