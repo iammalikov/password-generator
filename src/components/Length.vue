@@ -1,3 +1,24 @@
+<template>
+  <div class="length">
+    <input
+      id
+      class="length__range"
+      type="range"
+      min="1"
+      max="99"
+      step="1"
+      value="10"
+      name
+    />
+    <input id class="length__count" type="text" name value="10" />
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style lang="scss">
 .length {
   display: flex;
   align-items: center;
@@ -169,3 +190,4 @@
     }
   }
 }
+</style>

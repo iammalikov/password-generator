@@ -1,4 +1,20 @@
-.checkbox {
+<template>
+  <div class="toggle-button">
+    <input type="checkbox" />
+    <label>{{ labelText }}</label>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    labelText: String
+  }
+};
+</script>
+
+<style lang="scss">
+.toggle-button {
   input {
     display: none;
   }
@@ -44,3 +60,4 @@
     }
   }
 }
+</style>

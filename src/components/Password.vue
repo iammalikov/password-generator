@@ -1,3 +1,17 @@
+<template>
+  <div class="password">
+    <div class="password__field">PnfYucRbss5oNJzg2VJn5BQCm</div>
+    <button class="password__button">
+      <img src="@/assets/copy.svg" alt="copy" />
+    </button>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style lang="scss">
 .password {
   display: flex;
 
@@ -86,3 +100,4 @@
     }
   }
 }
+</style>

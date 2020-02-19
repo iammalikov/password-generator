@@ -1,3 +1,12 @@
+<template>
+  <img src="@/assets/logo.svg" alt="logo" class="logo" />
+</template>
+
+<script>
+export default {};
+</script>
+
+<style lang="scss">
 .logo {
   height: 21px;
   margin: 20px 0 50px;
@@ -11,3 +20,4 @@
     height: 31px;
   }
 }
+</style>

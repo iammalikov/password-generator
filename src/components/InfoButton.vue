@@ -1,3 +1,16 @@
+<template>
+  <img
+    class="info-button"
+    src="@/assets/info-button.svg"
+    alt="information about this app"
+  />
+</template>
+
+<script>
+export default {};
+</script>
+
+<style lang="scss">
 .info-button {
   height: 30px;
   margin: 50px 0 20px;
@@ -13,3 +26,4 @@
     margin: 60px 0 30px;
   }
 }
+</style>

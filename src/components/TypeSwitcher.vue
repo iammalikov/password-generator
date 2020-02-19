@@ -1,4 +1,22 @@
-.radio-group {
+<template>
+  <div class="type-switcher">
+    <div class="type-switcher__button">
+      <input type="radio" name="password-type" id="scharacters" checked="true" />
+      <label for="scharacters">Characters</label>
+    </div>
+    <div class="type-switcher__button">
+      <input type="radio" name="password-type" id="phrase" />
+      <label for="phrase">Phrase</label>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style lang="scss">
+.type-switcher {
   display: flex;
 
   &__button {
@@ -53,3 +71,4 @@
     }
   }
 }
+</style>

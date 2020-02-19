@@ -1,3 +1,16 @@
+<template>
+  <div class="label">{{ text }}</div>
+</template>
+
+<script>
+export default {
+  props: {
+    text: String
+  }
+};
+</script>
+
+<style lang="scss">
 .label {
   font-weight: 300;
   font-size: 14px;
@@ -10,3 +23,4 @@
     font-size: 22px;
   }
 }
+</style>

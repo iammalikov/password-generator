@@ -1,3 +1,15 @@
+<template>
+  <div class="strenght">
+    <div class="strenght__estimate"></div>
+    <div class="strenght__label">Excellent</div>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style lang="scss">
 .strenght {
   display: flex;
   align-items: center;
@@ -42,3 +54,4 @@
     }
   }
 }
+</style>
