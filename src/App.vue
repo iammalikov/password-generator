@@ -3,25 +3,45 @@
     <Logo />
     <div class="app">
       <div class="app__type">
-        <TypeSwitcher />
+        <TypeSwitcher v-bind:type="passwordType" v-bind:callback="togglePasswordType" />
       </div>
       <div class="app__password">
-        <Password />
+        <Password v-bind:text="password" />
       </div>
       <div class="app__strenght">
-        <Strenght />
+        <Strenght v-bind:estimate="strenght" />
       </div>
       <div class="app__length">
         <Label text="Length" />
-        <Length />
+        <Length v-bind:value="length" />
       </div>
       <div class="app__characters">
         <Label text="Character type" />
         <div class="checkbox-group">
-          <ToggleButton labelText="A-Z" />
-          <ToggleButton labelText="a-z" />
-          <ToggleButton labelText="0-9" />
-          <ToggleButton labelText="!”#$" />
+          <ToggleButton
+            text="A-Z"
+            name="uppercaseLetters"
+            v-bind:active="characterType.uppercaseLetters"
+            v-bind:callback="toggleCharacterType"
+          />
+          <ToggleButton
+            text="a-z"
+            name="lowercasLetters"
+            v-bind:active="characterType.lowercasLetters"
+            v-bind:callback="toggleCharacterType"
+          />
+          <ToggleButton
+            text="0-9"
+            name="numbers"
+            v-bind:active="characterType.numbers"
+            v-bind:callback="toggleCharacterType"
+          />
+          <ToggleButton
+            text="!”#$"
+            name="specialCharacters"
+            v-bind:active="characterType.specialCharacters"
+            v-bind:callback="toggleCharacterType"
+          />
         </div>
       </div>
     </div>
@@ -50,6 +70,28 @@ export default {
     Label,
     ToggleButton,
     InfoButton
+  },
+  data() {
+    return {
+      passwordType: "characters", // characters | phrase
+      password: "PnfYucRbss5oNJzg2VJn5BQCm",
+      strenght: "normal", // bad | normal | good
+      length: 15,
+      characterType: {
+        uppercaseLetters: true,
+        lowercasLetters: true,
+        numbers: true,
+        specialCharacters: false
+      }
+    };
+  },
+  methods: {
+    togglePasswordType: function(type) {
+      this.passwordType = type;
+    },
+    toggleCharacterType: function(name) {
+      this.characterType[name] = !this.characterType[name];
+    }
   }
 };
 </script>

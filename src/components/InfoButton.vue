@@ -1,13 +1,11 @@
 <template>
-  <img
-    class="info-button"
-    src="@/assets/info-button.svg"
-    alt="information about this app"
-  />
+  <img class="info-button" src="@/assets/info-button.svg" alt="information about this app" />
 </template>
 
 <script>
-export default {};
+export default {
+  name: "InfoButton"
+};
 </script>
 
 <style lang="scss">
@@ -15,11 +13,14 @@ export default {};
   height: 30px;
   margin: 50px 0 20px;
   transition: all 0.3s ease;
-  cursor: pointer;
+  // cursor: pointer;
 
-  &:hover {
-    opacity: 0.5;
-  }
+  opacity: 0;
+  user-select: none;
+
+  // &:hover {
+  //   opacity: 0.5;
+  // }
 
   @media (min-width: 768px) {
     height: 40px;

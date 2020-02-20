@@ -1,6 +1,6 @@
 <template>
   <div class="password">
-    <div class="password__field">PnfYucRbss5oNJzg2VJn5BQCm</div>
+    <div class="password__field">{{ text }}</div>
     <button class="password__button">
       <img src="@/assets/copy.svg" alt="copy" />
     </button>
@@ -8,7 +8,12 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Password",
+  props: {
+    text: String
+  }
+};
 </script>
 
 <style lang="scss">
@@ -70,7 +75,6 @@ export default {};
     border: none;
     border-radius: 0 5px 5px 0;
     transition: all 0.3s ease;
-    user-select: none;
     cursor: pointer;
 
     @media (min-width: 768px) {

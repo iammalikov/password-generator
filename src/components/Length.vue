@@ -1,21 +1,17 @@
 <template>
   <div class="length">
-    <input
-      id
-      class="length__range"
-      type="range"
-      min="1"
-      max="99"
-      step="1"
-      value="10"
-      name
-    />
-    <input id class="length__count" type="text" name value="10" />
+    <input id class="length__range" type="range" min="1" max="99" step="1" :value="value" />
+    <input id class="length__count" type="text" :value="value" />
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Length",
+  props: {
+    value: Number
+  }
+};
 </script>
 
 <style lang="scss">

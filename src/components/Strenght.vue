@@ -1,12 +1,22 @@
 <template>
   <div class="strenght">
-    <div class="strenght__estimate"></div>
-    <div class="strenght__label">Excellent</div>
+    <div v-bind:class="['strenght__estimate', `strenght__estimate_${estimate}`]"></div>
+    <div class="strenght__label">{{ estimate | capitalize }}</div>
   </div>
 </template>
 
 <script>
-export default {};
+import capitalize from "@/utils/capitalize";
+
+export default {
+  name: "Strenght",
+  props: {
+    estimate: String
+  },
+  filters: {
+    capitalize
+  }
+};
 </script>
 
 <style lang="scss">
@@ -30,11 +40,30 @@ export default {};
       position: absolute;
       width: 100%;
       height: 5px;
-      background-color: $excellent;
+      background-color: $good;
       border-radius: 5px;
 
       @media (min-width: 768px) {
         height: 8px;
+      }
+    }
+
+    &_bad {
+      &:before {
+        width: 30%;
+        background-color: $bad;
+      }
+    }
+    &_normal {
+      &:before {
+        width: 60%;
+        background-color: $normal;
+      }
+    }
+    &_good {
+      &:before {
+        width: 100%;
+        background-color: $good;
       }
     }
   }
