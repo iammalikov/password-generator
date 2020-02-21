@@ -1,7 +1,15 @@
 <template>
   <div class="length">
-    <input id class="length__range" type="range" min="1" max="99" step="1" :value="value" />
-    <input id class="length__count" type="text" :value="value" />
+    <input
+      class="length__range"
+      type="range"
+      min="1"
+      max="99"
+      step="1"
+      v-bind:value="value"
+      v-on:change="$emit('input', $event.target.value)"
+    />
+    <input class="length__count" type="text" :value="value" readonly />
   </div>
 </template>
 
@@ -9,7 +17,7 @@
 export default {
   name: "Length",
   props: {
-    value: Number
+    value: String
   }
 };
 </script>
@@ -165,12 +173,15 @@ export default {
   &__count {
     width: 45px;
     height: 35px;
-    border: 2px solid $border;
+    border: none;
+    // border: 2px solid $border;
+    border-radius: 5px;
     margin-left: 20px;
     font-size: 14px;
+    background-color: $white;
     box-sizing: border-box;
-    border-radius: 5px;
     text-align: center;
+    cursor: default;
 
     @media (min-width: 768px) {
       width: 55px;

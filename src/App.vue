@@ -13,7 +13,7 @@
       </div>
       <div class="app__length">
         <Label text="Length" />
-        <Length v-bind:value="length" />
+        <Length v-bind:value="length" v-model="length" />
       </div>
       <div class="app__characters">
         <Label text="Character type" />
@@ -76,7 +76,7 @@ export default {
       passwordType: "characters", // characters | phrase
       password: "PnfYucRbss5oNJzg2VJn5BQCm",
       strenght: "normal", // bad | normal | good
-      length: 15,
+      length: "15",
       characterType: {
         uppercaseLetters: true,
         lowercasLetters: true,

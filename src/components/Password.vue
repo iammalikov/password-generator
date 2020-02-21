@@ -1,7 +1,7 @@
 <template>
   <div class="password">
     <div class="password__field">{{ text }}</div>
-    <button class="password__button">
+    <button class="password__button" v-clipboard="text">
       <img src="@/assets/copy.svg" alt="copy" />
     </button>
   </div>
