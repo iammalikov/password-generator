@@ -9,7 +9,6 @@ Allows you to generate complex passwords with the ability to choose the type of 
 3. Add tooltip to alert password copy to clipboard
 4. Come up with a word-based password generation algorithm
 5. Make up the page '?' - the importance of using complex and different passwords for each account
-6. Fix deploy to GitHub Pages
 
 ## Project setup
 
