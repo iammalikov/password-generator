@@ -21,25 +21,25 @@
           <ToggleButton
             text="A-Z"
             name="uppercaseLetters"
-            v-bind:active="characterType.uppercaseLetters"
+            v-bind:active="uppercaseLetters"
             v-bind:callback="toggleCharacterType"
           />
           <ToggleButton
             text="a-z"
             name="lowercasLetters"
-            v-bind:active="characterType.lowercasLetters"
+            v-bind:active="lowercasLetters"
             v-bind:callback="toggleCharacterType"
           />
           <ToggleButton
             text="0-9"
-            name="numbers"
-            v-bind:active="characterType.numbers"
+            name="digits"
+            v-bind:active="digits"
             v-bind:callback="toggleCharacterType"
           />
           <ToggleButton
             text="!”#$"
             name="specialCharacters"
-            v-bind:active="characterType.specialCharacters"
+            v-bind:active="specialCharacters"
             v-bind:callback="toggleCharacterType"
           />
         </div>
@@ -50,6 +50,14 @@
 </template>
 
 <script>
+import {
+  getNumber,
+  getUppercaseLetter,
+  getLowercasLetter,
+  getDigitCharacter,
+  getSpecialCharacter
+} from "@/utils/random";
+
 import Logo from "@/components/Logo";
 import TypeSwitcher from "@/components/TypeSwitcher";
 import Password from "@/components/Password";
@@ -74,15 +82,12 @@ export default {
   data() {
     return {
       passwordType: "characters", // characters | phrase
-      password: "PnfYucRbss5oNJzg2VJn5BQCm",
       strenght: "normal", // bad | normal | good
-      length: "15",
-      characterType: {
-        uppercaseLetters: true,
-        lowercasLetters: true,
-        numbers: true,
-        specialCharacters: false
-      }
+      length: 15,
+      uppercaseLetters: true,
+      lowercasLetters: true,
+      digits: true,
+      specialCharacters: false
     };
   },
   methods: {
@@ -90,7 +95,60 @@ export default {
       this.passwordType = type;
     },
     toggleCharacterType: function(name) {
-      this.characterType[name] = !this.characterType[name];
+      this[name] = !this[name];
+    },
+    generatePassword: function(
+      length,
+      uppercaseLetters,
+      lowercasLetters,
+      digits,
+      specialCharacters
+    ) {
+      let password = "";
+      let methods = [];
+
+      if (uppercaseLetters || lowercasLetters || digits || specialCharacters) {
+        // Checking the selected character type and selecting the necessary methods for generating random characters
+        if (uppercaseLetters) {
+          methods.push(getUppercaseLetter);
+        }
+        if (lowercasLetters) {
+          methods.push(getLowercasLetter);
+        }
+        if (digits) {
+          methods.push(getDigitCharacter);
+        }
+        if (specialCharacters) {
+          methods.push(getSpecialCharacter);
+        }
+      } else {
+        // If not one character type is selected – use all methods to generate random characters
+        methods = [
+          getUppercaseLetter,
+          getLowercasLetter,
+          getDigitCharacter,
+          getSpecialCharacter
+        ];
+      }
+
+      for (let i = 0; i < length; i++) {
+        const randomIndexMethod = getNumber(0, methods.length - 1);
+
+        password += methods[randomIndexMethod]();
+      }
+
+      return password;
+    }
+  },
+  computed: {
+    password: function() {
+      return this.generatePassword(
+        this.length,
+        this.uppercaseLetters,
+        this.lowercasLetters,
+        this.digits,
+        this.specialCharacters
+      );
     }
   }
 };

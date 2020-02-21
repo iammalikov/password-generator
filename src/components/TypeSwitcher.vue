@@ -7,6 +7,7 @@
     <button
       v-bind:class="['type-switcher__item', {'type-switcher__item_active': type === 'phrase'}]"
       v-on:click="callback('phrase')"
+      disabled
     >Phrase</button>
   </div>
 </template>
@@ -31,6 +32,7 @@ export default {
     align-items: center;
     justify-content: center;
     border: 1px solid $main;
+    background-color: transparent;
     color: $main;
     text-align: center;
     width: 106px;
@@ -53,6 +55,16 @@ export default {
 
     &:hover {
       background-color: rgba($main, 0.1);
+    }
+
+    &:disabled {
+      color: $border;
+      border-color: $border;
+      cursor: default;
+
+      &:hover {
+        background-color: transparent;
+      }
     }
 
     &_active {

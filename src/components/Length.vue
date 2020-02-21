@@ -4,10 +4,10 @@
       class="length__range"
       type="range"
       min="1"
-      max="99"
+      max="100"
       step="1"
       v-bind:value="value"
-      v-on:change="$emit('input', $event.target.value)"
+      v-on:change="$emit('input', Number($event.target.value))"
     />
     <input class="length__count" type="text" :value="value" readonly />
   </div>
@@ -17,7 +17,7 @@
 export default {
   name: "Length",
   props: {
-    value: String
+    value: Number
   }
 };
 </script>

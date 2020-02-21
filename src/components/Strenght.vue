@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import capitalize from "@/utils/capitalize";
+import { capitalize } from "@/utils/formatting";
 
 export default {
   name: "Strenght",

@@ -1,7 +1,7 @@
 <template>
   <div class="password">
     <div class="password__field">{{ text }}</div>
-    <button class="password__button" v-clipboard="text">
+    <button class="password__button" v-clipboard="() => text">
       <img src="@/assets/copy.svg" alt="copy" />
     </button>
   </div>
@@ -32,6 +32,7 @@ export default {
     padding: 0 15px;
     border-radius: 5px 0 0 5px;
     overflow: hidden;
+    white-space: nowrap;
     flex-grow: 1;
     flex-basis: auto;
 

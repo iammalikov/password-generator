@@ -28,6 +28,7 @@ export default {
   border: 1px solid $main;
   border-radius: 5px;
   font-size: 16px;
+  background-color: transparent;
   color: $main;
   text-align: center;
   transition: all 0.3s ease;
