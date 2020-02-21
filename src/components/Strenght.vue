@@ -42,6 +42,7 @@ export default {
       height: 5px;
       background-color: $good;
       border-radius: 5px;
+      transition: all 0.3s ease;
 
       @media (min-width: 768px) {
         height: 8px;

@@ -31,6 +31,8 @@ export default {
   background-color: transparent;
   color: $main;
   text-align: center;
+  white-space: nowrap;
+  outline: none;
   transition: all 0.3s ease;
   user-select: none;
   cursor: pointer;

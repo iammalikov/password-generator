@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import zxcvbn from "zxcvbn";
 import {
   getNumber,
   getUppercaseLetter,
@@ -82,7 +83,6 @@ export default {
   data() {
     return {
       passwordType: "characters", // characters | phrase
-      strenght: "normal", // bad | normal | good
       length: 15,
       uppercaseLetters: true,
       lowercasLetters: true,
@@ -138,6 +138,20 @@ export default {
       }
 
       return password;
+    },
+    calculatePasswordStrength: function(password) {
+      const result = zxcvbn(password);
+      const estimate = result.score; // 0-4
+
+      if (estimate <= 2) {
+        return "bad";
+      }
+
+      if (estimate === 3) {
+        return "normal";
+      }
+
+      return "good";
     }
   },
   computed: {
@@ -149,6 +163,9 @@ export default {
         this.digits,
         this.specialCharacters
       );
+    },
+    strenght: function() {
+      return this.calculatePasswordStrength(this.password);
     }
   }
 };

@@ -180,6 +180,7 @@ export default {
     font-size: 14px;
     background-color: $white;
     box-sizing: border-box;
+    outline: none;
     text-align: center;
     cursor: default;
 

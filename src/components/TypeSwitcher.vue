@@ -35,6 +35,8 @@ export default {
     background-color: transparent;
     color: $main;
     text-align: center;
+    white-space: nowrap;
+    outline: none;
     width: 106px;
     height: 35px;
     font-size: 14px;
