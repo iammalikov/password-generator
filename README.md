@@ -4,11 +4,10 @@ Allows you to generate complex passwords with the ability to choose the type of 
 
 ## What is not implemented?
 
-1. To come up with a mechanism for determining the complexity of a password on a scale: bad, normal, good
-2. Implement manual input of numbers in Length
-3. Add tooltip to alert password copy to clipboard
-4. Come up with a word-based password generation algorithm
-5. Make up the page '?' - the importance of using complex and different passwords for each account
+1. Implement manual input of numbers in Length
+2. Add tooltip to alert password copy to clipboard
+3. Come up with a word-based password generation algorithm
+4. Make up the page '?' - the importance of using complex and different passwords for each account
 
 ## Project setup
 
