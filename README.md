@@ -4,10 +4,8 @@ Allows you to generate complex passwords with the ability to choose the type of 
 
 ## What is not implemented?
 
-1. Implement manual input of numbers in Length
-2. Add tooltip to alert password copy to clipboard
-3. Come up with a word-based password generation algorithm
-4. Make up the page '?' - the importance of using complex and different passwords for each account
+1. Add tooltip to alert password copy to clipboard
+2. Come up with a word-based password generation algorithm
 
 ## Project setup
 

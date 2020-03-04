@@ -1,8 +1,10 @@
 <template>
   <button
-    v-bind:class="['toggle-button', {'toggle-button_active': active}]"
+    v-bind:class="['toggle-button', { 'toggle-button_active': active }]"
     v-on:click="callback(name)"
-  >{{ text }}</button>
+  >
+    {{ text }}
+  </button>
 </template>
 
 <script>

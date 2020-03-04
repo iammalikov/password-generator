@@ -1,14 +1,24 @@
 <template>
   <div class="type-switcher">
     <button
-      v-bind:class="['type-switcher__item', {'type-switcher__item_active': type === 'characters'}]"
+      v-bind:class="[
+        'type-switcher__item',
+        { 'type-switcher__item_active': type === 'characters' }
+      ]"
       v-on:click="callback('characters')"
-    >Characters</button>
+    >
+      Characters
+    </button>
     <button
-      v-bind:class="['type-switcher__item', {'type-switcher__item_active': type === 'phrase'}]"
+      v-bind:class="[
+        'type-switcher__item',
+        { 'type-switcher__item_active': type === 'phrase' }
+      ]"
       v-on:click="callback('phrase')"
       disabled
-    >Phrase</button>
+    >
+      Phrase
+    </button>
   </div>
 </template>
 

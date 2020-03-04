@@ -3,7 +3,10 @@
     <Logo />
     <div class="app">
       <div class="app__type">
-        <TypeSwitcher v-bind:type="passwordType" v-bind:callback="togglePasswordType" />
+        <TypeSwitcher
+          v-bind:type="passwordType"
+          v-bind:callback="togglePasswordType"
+        />
       </div>
       <div class="app__password">
         <Password v-bind:text="password" />
@@ -13,7 +16,7 @@
       </div>
       <div class="app__length">
         <Label text="Length" />
-        <Length v-bind:value="length" v-model="length" />
+        <Length v-bind:value="length" v-bind:callback="setLength" />
       </div>
       <div class="app__characters">
         <Label text="Character type" />
@@ -45,7 +48,7 @@
         </div>
       </div>
     </div>
-    <InfoButton />
+    <Help />
   </div>
 </template>
 
@@ -66,7 +69,7 @@ import Strenght from "@/components/Strenght";
 import Length from "@/components/Length";
 import Label from "@/components/Label";
 import ToggleButton from "@/components/ToggleButton";
-import InfoButton from "@/components/InfoButton";
+import Help from "@/components/Help";
 
 export default {
   name: "App",
@@ -78,7 +81,7 @@ export default {
     Length,
     Label,
     ToggleButton,
-    InfoButton
+    Help
   },
   data() {
     return {
@@ -143,15 +146,27 @@ export default {
       const result = zxcvbn(password);
       const estimate = result.score; // 0-4
 
-      if (estimate <= 2) {
-        return "bad";
+      switch (estimate) {
+        case 0:
+          return "deadly";
+        case 1:
+          return "bad";
+        case 2:
+          return "normal";
+        case 3:
+          return "good";
+        default:
+          return "excellent";
+      }
+    },
+    setLength: function(value) {
+      const length = Number(value);
+
+      if (isNaN(length) || length < 1 || length > 100) {
+        return false;
       }
 
-      if (estimate === 3) {
-        return "normal";
-      }
-
-      return "good";
+      this.length = length;
     }
   },
   computed: {
@@ -196,7 +211,7 @@ export default {
     align-self: start;
   }
 
-  .info-button {
+  .help {
     align-self: end;
   }
 }

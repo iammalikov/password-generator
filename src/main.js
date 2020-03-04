@@ -1,6 +1,7 @@
 import Vue from "vue";
+import Clipboard from "v-clipboard";
+
 import App from "./App.vue";
-import Clipboard from 'v-clipboard';
 
 import "normalize.css";
 import "./styles/main.scss";

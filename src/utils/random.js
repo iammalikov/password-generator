@@ -42,11 +42,19 @@ function getSpecialCharacter() {
     [91, 96],
     [123, 126]
   ];
-  const currentRange = characterRanges[getNumber(0, characterRanges.length - 1)];
+  const currentRange =
+    characterRanges[getNumber(0, characterRanges.length - 1)];
   const firstCharacterCode = currentRange[0];
   const lastCharacterCode = currentRange[1];
 
   return getCharacterForRange(firstCharacterCode, lastCharacterCode);
 }
 
-export { getNumber, getCharacterForRange, getUppercaseLetter, getLowercasLetter, getDigitCharacter, getSpecialCharacter };
+export {
+  getNumber,
+  getCharacterForRange,
+  getUppercaseLetter,
+  getLowercasLetter,
+  getDigitCharacter,
+  getSpecialCharacter
+};

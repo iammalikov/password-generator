@@ -1,6 +1,8 @@
 <template>
   <div class="strenght">
-    <div v-bind:class="['strenght__estimate', `strenght__estimate_${estimate}`]"></div>
+    <div
+      v-bind:class="['strenght__estimate', `strenght__estimate_${estimate}`]"
+    ></div>
     <div class="strenght__label">{{ estimate | capitalize }}</div>
   </div>
 </template>
@@ -49,38 +51,57 @@ export default {
       }
     }
 
+    &_deadly,
     &_bad {
       &:before {
-        width: 30%;
+        width: 20%;
         background-color: $bad;
+        box-shadow: 0 0 5px 0 $bad;
       }
     }
+
+    &_bad {
+      &:before {
+        width: 40%;
+      }
+    }
+
     &_normal {
       &:before {
         width: 60%;
         background-color: $normal;
+        box-shadow: 0 0 5px 0 $normal;
       }
     }
-    &_good {
+
+    &_good,
+    &_excellent {
+      &:before {
+        width: 80%;
+        background-color: $good;
+        box-shadow: 0 0 5px 0 $good;
+      }
+    }
+
+    &_excellent {
       &:before {
         width: 100%;
-        background-color: $good;
       }
     }
   }
 
   &__label {
+    min-width: 80px;
     font-size: 10px;
-    margin-left: 20px;
+    text-align: right;
 
     @media (min-width: 768px) {
+      min-width: 120px;
       font-size: 14px;
-      margin-left: 40px;
     }
 
     @media (min-width: 1028px) {
       font-size: 16px;
-      margin-left: 40px;
     }
   }
 }

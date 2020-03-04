@@ -7,9 +7,14 @@
       max="100"
       step="1"
       v-bind:value="value"
-      v-on:change="$emit('input', Number($event.target.value))"
+      v-on:change="callback($event.target.value)"
     />
-    <input class="length__count" type="text" :value="value" readonly />
+    <input
+      class="length__count"
+      type="text"
+      v-bind:value="value"
+      v-on:input="callback($event.target.value)"
+    />
   </div>
 </template>
 
@@ -17,7 +22,8 @@
 export default {
   name: "Length",
   props: {
-    value: Number
+    value: Number,
+    callback: Function
   }
 };
 </script>
@@ -173,10 +179,9 @@ export default {
   &__count {
     width: 45px;
     height: 35px;
-    border: none;
-    // border: 2px solid $border;
+    border: 2px solid $border;
     border-radius: 5px;
-    margin-left: 20px;
+    margin-left: 35px;
     font-size: 14px;
     background-color: $white;
     box-sizing: border-box;
@@ -185,15 +190,16 @@ export default {
     cursor: default;
 
     @media (min-width: 768px) {
-      width: 55px;
+      min-width: 55px;
       height: 45px;
+      margin-left: 65px;
       font-size: 16px;
     }
 
     @media (min-width: 1028px) {
-      width: 60px;
+      min-width: 60px;
       height: 50px;
-      margin-left: 50px;
+      margin-left: 60px;
       font-size: 18px;
     }
   }
