@@ -6,9 +6,7 @@
         { 'type-switcher__item_active': type === 'characters' }
       ]"
       v-on:click="callback('characters')"
-    >
-      Characters
-    </button>
+    >Characters</button>
     <button
       v-bind:class="[
         'type-switcher__item',
@@ -16,9 +14,7 @@
       ]"
       v-on:click="callback('phrase')"
       disabled
-    >
-      Phrase
-    </button>
+    >Phrase</button>
   </div>
 </template>
 
@@ -92,10 +88,12 @@ export default {
     }
 
     &:first-child {
+      border-right: none;
       border-radius: 5px 0px 0px 5px;
     }
 
     &:last-child {
+      border-left: none;
       border-radius: 0 5px 5px 0;
     }
   }

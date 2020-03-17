@@ -3,10 +3,7 @@
     <Logo />
     <div class="app">
       <div class="app__type">
-        <TypeSwitcher
-          v-bind:type="passwordType"
-          v-bind:callback="togglePasswordType"
-        />
+        <TypeSwitcher v-bind:type="passwordType" v-bind:callback="togglePasswordType" />
       </div>
       <div class="app__password">
         <Password v-bind:text="password" />
@@ -86,7 +83,7 @@ export default {
   data() {
     return {
       passwordType: "characters", // characters | phrase
-      length: 15,
+      length: 10,
       uppercaseLetters: true,
       lowercasLetters: true,
       digits: true,
