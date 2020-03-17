@@ -187,7 +187,6 @@ export default {
     box-sizing: border-box;
     outline: none;
     text-align: center;
-    cursor: default;
 
     @media (min-width: 768px) {
       min-width: 55px;
