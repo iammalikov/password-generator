@@ -13,7 +13,7 @@
       </div>
       <div class="app__length">
         <Label text="Length" />
-        <Length v-bind:value="length" v-bind:callback="setLength" />
+        <Length v-model="length" arial-label="Length" />
       </div>
       <div class="app__characters">
         <Label text="Character type" />
@@ -51,6 +51,7 @@
 
 <script>
 import zxcvbn from "zxcvbn";
+import debounce from '@/utils/debounce';
 import {
   getNumber,
   getUppercaseLetter,
@@ -82,6 +83,7 @@ export default {
   },
   data() {
     return {
+      password: '',
       passwordType: "characters", // characters | phrase
       length: 10,
       uppercaseLetters: true,
@@ -90,7 +92,19 @@ export default {
       specialCharacters: false
     };
   },
+  created () {
+    this.updatePassword()
+  },
   methods: {
+    updatePassword: debounce(function() {
+      this.password = this.generatePassword(
+        this.length,
+        this.uppercaseLetters,
+        this.lowercasLetters,
+        this.digits,
+        this.specialCharacters
+      );
+    }, 500),
     togglePasswordType: function(type) {
       this.passwordType = type;
     },
@@ -156,26 +170,13 @@ export default {
           return "excellent";
       }
     },
-    setLength: function(value) {
-      const length = Number(value);
-
-      if (isNaN(length) || length < 1 || length > 100) {
-        return false;
-      }
-
-      this.length = length;
+  },
+  watch: {
+    length() {
+      this.updatePassword();
     }
   },
   computed: {
-    password: function() {
-      return this.generatePassword(
-        this.length,
-        this.uppercaseLetters,
-        this.lowercasLetters,
-        this.digits,
-        this.specialCharacters
-      );
-    },
     strenght: function() {
       return this.calculatePasswordStrength(this.password);
     }

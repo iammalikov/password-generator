@@ -6,24 +6,24 @@
       min="1"
       max="100"
       step="1"
-      v-bind:value="value"
-      v-on:change="callback($event.target.value)"
+      :value="value"
+      @input="$emit('input', $event.target.value)"
     />
     <input
       class="length__count"
       type="text"
-      v-bind:value="value"
-      v-on:input="callback($event.target.value)"
+      :value="value"
+      @input="$emit('input', $event.target.value)"
     />
   </div>
 </template>
 
 <script>
+
 export default {
   name: "Length",
   props: {
-    value: Number,
-    callback: Function
+    value: {}
   }
 };
 </script>
