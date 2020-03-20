@@ -36,6 +36,8 @@ export default {
   width: 100%;
 
   &__range {
+    cursor: pointer;
+    height: 40px;
     /* Normalize style for thumb and track */
     &[type="range"] {
       -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
@@ -45,6 +47,16 @@ export default {
 
     &[type="range"]::-webkit-slider-thumb {
       -webkit-appearance: none;
+    }
+
+    &[type="range"]:hover::-webkit-slider-thumb,
+    &[type="range"]:focus::-webkit-slider-thumb{
+      border-color: $main
+    }
+
+    &[type="range"]:active::-webkit-slider-thumb {
+      border-color: $main;
+      background: $main;
     }
 
     &[type="range"]:focus {
