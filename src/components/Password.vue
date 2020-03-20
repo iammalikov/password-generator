@@ -5,7 +5,8 @@
     </div>
     <button class="password__button"
             :disabled="disabled"
-            v-clipboard="() => text">
+            aria-label="Copy password"
+            @click="copy">
       <img src="@/assets/copy.svg" alt="copy" v-if="!loading"/>
     </button>
   </div>
@@ -19,11 +20,27 @@ export default {
     disabled: { type: Boolean, default: false },
     loading: { type: Boolean, default: false }
   },
+  data () {
+    return {
+        blinked: false
+    }
+  },
   computed: {
     classList() {
       return {
-        '_disabled': this.disabled
+        '_disabled': this.disabled,
+        '_blinked': this.blinked
       }
+    }
+  },
+  methods: {
+    copy() {
+      this.$clipboard(this.text)
+      this.blink()
+    },
+    blink() {
+      this.blinked = true
+      setTimeout(() => (this.blinked = false), 0)
     }
   }
 };
@@ -32,10 +49,17 @@ export default {
 <style lang="scss">
 .password {
   display: flex;
+  box-shadow: none;
+  transition: 2s box-shadow;
 
   &._disabled {
     opacity: 0.7;
     pointer-events: none;
+  }
+
+  &._blinked {
+    box-shadow: 0 0 20px rgba($main, 0.3);
+    transition: 0s box-shadow;
   }
 
   &__field {
