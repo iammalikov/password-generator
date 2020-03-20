@@ -1,8 +1,12 @@
 <template>
-  <div class="password">
-    <div class="password__field">{{ text }}</div>
-    <button class="password__button" v-clipboard="() => text">
-      <img src="@/assets/copy.svg" alt="copy" />
+  <div class="password" :class="classList">
+    <div class="password__field">
+      <span v-html="text"></span>
+    </div>
+    <button class="password__button"
+            :disabled="disabled"
+            v-clipboard="() => text">
+      <img src="@/assets/copy.svg" alt="copy" v-if="!loading"/>
     </button>
   </div>
 </template>
@@ -11,7 +15,16 @@
 export default {
   name: "Password",
   props: {
-    text: String
+    text: { type: String, default: '' },
+    disabled: { type: Boolean, default: false },
+    loading: { type: Boolean, default: false }
+  },
+  computed: {
+    classList() {
+      return {
+        '_disabled': this.disabled
+      }
+    }
   }
 };
 </script>
@@ -19,6 +32,11 @@ export default {
 <style lang="scss">
 .password {
   display: flex;
+
+  &._disabled {
+    opacity: 0.7;
+    pointer-events: none;
+  }
 
   &__field {
     position: relative;
@@ -64,6 +82,7 @@ export default {
   }
 
   &__button {
+    position: relative;
     box-sizing: border-box;
     display: flex;
     align-items: center;

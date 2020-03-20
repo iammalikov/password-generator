@@ -6,7 +6,7 @@
         <TypeSwitcher v-bind:type="passwordType" v-bind:callback="togglePasswordType" />
       </div>
       <div class="app__password">
-        <Password v-bind:text="password" />
+        <Password v-bind:text="password" :disabled="disabled" />
       </div>
       <div class="app__strenght">
         <Strenght v-bind:estimate="strenght" />
@@ -83,28 +83,35 @@ export default {
   },
   data() {
     return {
+      disabled: false,
       password: '',
       passwordType: "characters", // characters | phrase
       length: 10,
       uppercaseLetters: true,
       lowercasLetters: true,
       digits: true,
-      specialCharacters: false
+      specialCharacters: false,
+      debounceDelay: 200 // delay between length changes
     };
   },
   created () {
+    this.updatePassword = debounce(function() {
+        this.password = this.generatePassword(
+            this.length,
+            this.uppercaseLetters,
+            this.lowercasLetters,
+            this.digits,
+            this.specialCharacters
+        );
+        this.disabled = false
+    }, this.debounceDelay)
+
     this.updatePassword()
   },
   methods: {
-    updatePassword: debounce(function() {
-      this.password = this.generatePassword(
-        this.length,
-        this.uppercaseLetters,
-        this.lowercasLetters,
-        this.digits,
-        this.specialCharacters
-      );
-    }, 500),
+    updatePassword () {
+        // see `created` hook:
+    },
     togglePasswordType: function(type) {
       this.passwordType = type;
     },
@@ -173,6 +180,7 @@ export default {
   },
   watch: {
     length() {
+      this.disabled = true
       this.updatePassword();
     }
   },
