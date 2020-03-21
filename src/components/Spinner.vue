@@ -1,5 +1,5 @@
 <template>
-    <div class="spinner" :class="classList"></div>
+    <div :class="classList"></div>
 </template>
 
 <script>
@@ -9,8 +9,10 @@
       },
       computed: {
           classList () {
-              const sizeClass = `_${this.size}`
+              const baseClass = 'spinner'
+              const sizeClass = `${baseClass}_${this.size}`
               return {
+                  [baseClass]: true,
                   [sizeClass]: true
               }
           }
@@ -25,21 +27,21 @@
         position: relative;
         color: $main;
 
-        &._sm {
+        &_sm {
             font-size: 16px;
             &:before {
               border-width: 2px;
             }
         }
 
-        &._md {
+        &_md {
             font-size: 20px;
             &:before {
               border-width: 3px
             }
         }
 
-        &._lg {
+        &_lg {
             font-size: 28px;
             &:before {
               border-width: 5px

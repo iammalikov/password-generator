@@ -28,8 +28,8 @@ export default {
   computed: {
     classList() {
       return {
-        '_disabled': this.disabled,
-        '_blinked': this.blinked
+        'password_disabled': this.disabled,
+        'password_blinked': this.blinked
       }
     }
   },
@@ -52,12 +52,12 @@ export default {
   box-shadow: none;
   transition: 2s box-shadow;
 
-  &._disabled {
+  &_disabled {
     opacity: 0.7;
     pointer-events: none;
   }
 
-  &._blinked {
+  &_blinked {
     box-shadow: 0 0 20px rgba($main, 0.3);
     transition: 0s box-shadow;
   }
