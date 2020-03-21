@@ -3,10 +3,17 @@
     <Logo />
     <div class="app">
       <div class="app__type">
-        <TypeSwitcher v-bind:type="passwordType" v-bind:callback="togglePasswordType" />
+        <TypeSwitcher
+          v-bind:type="passwordType"
+          v-bind:callback="togglePasswordType"
+        />
       </div>
       <div class="app__password">
-        <Password v-bind:text="password" :disabled="disabled" :loading="loading" />
+        <Password
+          v-bind:text="password"
+          :disabled="disabled"
+          :loading="loading"
+        />
       </div>
       <div class="app__strenght">
         <Strenght v-bind:estimate="strenght" />
@@ -51,7 +58,7 @@
 
 <script>
 import zxcvbn from "zxcvbn";
-import debounce from '@/utils/debounce';
+import debounce from "@/utils/debounce";
 import {
   getNumber,
   getUppercaseLetter,
@@ -85,7 +92,7 @@ export default {
     return {
       loading: false,
       disabled: false,
-      password: '',
+      password: "",
       passwordType: "characters", // characters | phrase
       length: 10,
       uppercaseLetters: true,
@@ -95,36 +102,36 @@ export default {
       debounceDelay: 200 // delay between length changes
     };
   },
-  created () {
-    let timer
+  created() {
+    let timer;
     this.updatePassword = debounce(function() {
-        this.loading = true
-        clearTimeout(timer)
-        timer = setTimeout(() => {
-          this.password = this.generatePassword(
-            this.length,
-            this.uppercaseLetters,
-            this.lowercasLetters,
-            this.digits,
-            this.specialCharacters
-          );
-          this.loading = false
-          this.disabled = false
-        }, 500)
-    }, this.debounceDelay)
+      this.loading = true;
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        this.password = this.generatePassword(
+          this.length,
+          this.uppercaseLetters,
+          this.lowercasLetters,
+          this.digits,
+          this.specialCharacters
+        );
+        this.loading = false;
+        this.disabled = false;
+      }, 500);
+    }, this.debounceDelay);
 
-    this.updatePassword()
+    this.updatePassword();
   },
   methods: {
-    updatePassword () {
-        // see `created` hook:
+    updatePassword() {
+      // see `created` hook:
     },
     togglePasswordType: function(type) {
       this.passwordType = type;
     },
     toggleCharacterType: function(name) {
       this[name] = !this[name];
-      this.updatePassword()
+      this.updatePassword();
     },
     generatePassword: function(
       length,
@@ -184,11 +191,11 @@ export default {
         default:
           return "excellent";
       }
-    },
+    }
   },
   watch: {
     length() {
-      this.disabled = true
+      this.disabled = true;
       this.updatePassword();
     }
   },

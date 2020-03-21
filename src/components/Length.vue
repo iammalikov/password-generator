@@ -19,7 +19,6 @@
 </template>
 
 <script>
-
 export default {
   name: "Length",
   props: {
@@ -50,8 +49,8 @@ export default {
     }
 
     &[type="range"]:hover::-webkit-slider-thumb,
-    &[type="range"]:focus::-webkit-slider-thumb{
-      border-color: $main
+    &[type="range"]:focus::-webkit-slider-thumb {
+      border-color: $main;
     }
 
     &[type="range"]:active::-webkit-slider-thumb {

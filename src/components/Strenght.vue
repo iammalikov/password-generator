@@ -1,6 +1,8 @@
 <template>
   <div class="strenght">
-    <div v-bind:class="['strenght__estimate', `strenght__estimate_${estimate}`]"></div>
+    <div
+      v-bind:class="['strenght__estimate', `strenght__estimate_${estimate}`]"
+    ></div>
     <div class="strenght__label">{{ estimate | capitalize }}</div>
   </div>
 </template>

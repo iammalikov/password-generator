@@ -2,54 +2,54 @@
   <div class="password" :class="classList">
     <div class="password__field">
       <span v-html="text" v-if="!loading"></span>
-
       <div class="password__loading" v-else>
-        <Spinner class="password__loading-spinner"></Spinner>
+        <Spinner class="password__loading-spinner" />
         <div class="password__loading-text">Loading...</div>
       </div>
-
     </div>
-    <button class="password__button"
-            :disabled="disabled || loading"
-            aria-label="Copy password"
-            @click="copy">
-      <img src="@/assets/copy.svg" alt="copy"/>
+    <button
+      class="password__button"
+      :disabled="disabled || loading"
+      aria-label="Copy password"
+      @click="copy"
+    >
+      <img src="@/assets/copy.svg" alt="copy" />
     </button>
   </div>
 </template>
 
 <script>
-import Spinner from '@/components/Spinner';
+import Spinner from "@/components/Spinner";
 
 export default {
   name: "Password",
   components: { Spinner },
   props: {
-    text: { type: String, default: '' },
+    text: { type: String, default: "" },
     disabled: { type: Boolean, default: false },
     loading: { type: Boolean, default: false }
   },
-  data () {
+  data() {
     return {
-        blinked: false
-    }
+      blinked: false
+    };
   },
   computed: {
     classList() {
       return {
-        'password_disabled': this.disabled,
-        'password_blinked': this.blinked
-      }
+        password_disabled: this.disabled,
+        password_blinked: this.blinked
+      };
     }
   },
   methods: {
     copy() {
-      this.$clipboard(this.text)
-      this.blink()
+      this.$clipboard(this.text);
+      this.blink();
     },
     blink() {
-      this.blinked = true
-      setTimeout(() => (this.blinked = false), 0)
+      this.blinked = true;
+      setTimeout(() => (this.blinked = false), 0);
     }
   }
 };
@@ -62,7 +62,7 @@ export default {
   transition: 2s box-shadow;
 
   &_disabled {
-   pointer-events: none;
+    pointer-events: none;
   }
 
   &_blinked {

@@ -7,6 +7,16 @@ Allows you to generate complex passwords with the ability to choose the type of 
 1. Add tooltip to alert password copy to clipboard
 2. Come up with a word-based password generation algorithm
 
+## Todo
+
+### UI
+
+- Make range slider wider
+- Animate password copying
+- Fake delay and show spinner on password generation
+- Inc/Dec length on keyUp and keyDown
+- Add button «update password»
+
 ## Project setup
 
 ```
@@ -34,11 +44,3 @@ npm run lint
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
-
-## Todo
-### UI
-- Make range slider wider
-- Animate password copying
-- Fake delay and show spinner on password generation
-- Inc/Dec length on keyUp and keyDown
-- Add button «update password»

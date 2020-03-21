@@ -6,7 +6,9 @@
         { 'type-switcher__item_active': type === 'characters' }
       ]"
       v-on:click="callback('characters')"
-    >Characters</button>
+    >
+      Characters
+    </button>
     <button
       v-bind:class="[
         'type-switcher__item',
@@ -14,7 +16,9 @@
       ]"
       v-on:click="callback('phrase')"
       disabled
-    >Phrase</button>
+    >
+      Phrase
+    </button>
   </div>
 </template>
 
