@@ -117,6 +117,7 @@ export default {
     },
     toggleCharacterType: function(name) {
       this[name] = !this[name];
+      this.updatePassword()
     },
     generatePassword: function(
       length,
