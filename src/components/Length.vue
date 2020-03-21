@@ -6,24 +6,24 @@
       min="1"
       max="100"
       step="1"
-      v-bind:value="value"
-      v-on:change="callback($event.target.value)"
+      :value="value"
+      @input="$emit('input', $event.target.value)"
     />
     <input
       class="length__count"
       type="text"
-      v-bind:value="value"
-      v-on:input="callback($event.target.value)"
+      :value="value"
+      @input="$emit('input', $event.target.value)"
     />
   </div>
 </template>
 
 <script>
+
 export default {
   name: "Length",
   props: {
-    value: Number,
-    callback: Function
+    value: {}
   }
 };
 </script>
@@ -36,6 +36,8 @@ export default {
   width: 100%;
 
   &__range {
+    cursor: pointer;
+    height: 40px;
     /* Normalize style for thumb and track */
     &[type="range"] {
       -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
@@ -45,6 +47,16 @@ export default {
 
     &[type="range"]::-webkit-slider-thumb {
       -webkit-appearance: none;
+    }
+
+    &[type="range"]:hover::-webkit-slider-thumb,
+    &[type="range"]:focus::-webkit-slider-thumb{
+      border-color: $main
+    }
+
+    &[type="range"]:active::-webkit-slider-thumb {
+      border-color: $main;
+      background: $main;
     }
 
     &[type="range"]:focus {

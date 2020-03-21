@@ -34,3 +34,11 @@ npm run lint
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Todo
+### UI
+- Make range slider wider
+- Animate password copying
+- Fake delay and show spinner on password generation
+- Inc/Dec length on keyUp and keyDown
+- Add button «update password»
