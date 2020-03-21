@@ -1,20 +1,29 @@
 <template>
   <div class="password" :class="classList">
     <div class="password__field">
-      <span v-html="text"></span>
+      <span v-html="text" v-if="!loading"></span>
+
+      <div class="password__loading" v-else>
+        <Spinner class="password__loading-spinner"></Spinner>
+        <div class="password__loading-text">Loading...</div>
+      </div>
+
     </div>
     <button class="password__button"
-            :disabled="disabled"
+            :disabled="disabled || loading"
             aria-label="Copy password"
             @click="copy">
-      <img src="@/assets/copy.svg" alt="copy" v-if="!loading"/>
+      <img src="@/assets/copy.svg" alt="copy"/>
     </button>
   </div>
 </template>
 
 <script>
+import Spinner from '@/components/Spinner';
+
 export default {
   name: "Password",
+  components: { Spinner },
   props: {
     text: { type: String, default: '' },
     disabled: { type: Boolean, default: false },
@@ -53,8 +62,7 @@ export default {
   transition: 2s box-shadow;
 
   &_disabled {
-    opacity: 0.7;
-    pointer-events: none;
+   pointer-events: none;
   }
 
   &_blinked {
@@ -105,6 +113,16 @@ export default {
     }
   }
 
+  &__loading {
+    display: inline-flex;
+
+    &-text {
+      margin-left: 20px;
+      font-size: 18px;
+      opacity: 0.7;
+    }
+  }
+
   &__button {
     position: relative;
     box-sizing: border-box;
@@ -120,6 +138,11 @@ export default {
     border-radius: 0 5px 5px 0;
     transition: all 0.3s ease;
     cursor: pointer;
+
+    &[disabled] {
+      opacity: 0.5;
+      pointer-events: none;
+    }
 
     @media (min-width: 768px) {
       min-width: 65px;
